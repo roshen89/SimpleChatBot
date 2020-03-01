@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<message>
+  <example id="1">
+    <text id="1" type="robot" replace="false">🤖: Hi there, I'm Jeff 👋</text>
+    <text id="2" type="robot" replace="false">🤖: Your new best friend for finding great loan offers!</text>
+    <text id="3" type="robot" replace="false">🤖: First things first - let's get your account set up 🛠️</text>
+    <text id="4" type="robot" replace="false">🤖: What is your first name?</text>
+    <text id="5" type="human" for="firstName" >👧: </text>
+    <text id="6" type="robot" replace="false">🤖: And what is your last name?</text>
+    <text id="7" type="human" for="lastName">👧: </text>
+    <text id="8" type="robot" replace="true">🤖: Nice to meet you, {firstName} {lastName}!</text>
+  </example>
+
+  <example id="2">
+    <text id="1" type="robot" replace="true">🤖: {firstName}, what's your email address?</text>
+    <text id="2" type="human" for="email">👧: </text>
+    <text id="3" type="robot" replace="false">🤖: Fantastic. We are 70% done with the setup!</text>
+    <text id="4" type="robot" replace="false">🤖: Your age is another important value for finding the best offers. Please enter your date of birth 📅</text>
+    <text id="5" type="human" for="birthday">👧: </text>
+  </example>
+
+  <example id="3">
+    <text id="1" type="robot" replace="false">🤖: And what do you need the money for?</text>
+    <text id="2" type="human" for="single-choice">👧: 'Home','Car','Holidays','Big Event' : </text>
+    <text id="3" type="robot" replace="false">🤖: Nice, I already have some options for you</text>
+  </example>
+</message>
