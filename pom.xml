@@ -11,7 +11,7 @@
 	<groupId>com.jeffapp</groupId>
 	<artifactId>chatbot</artifactId>
 	<version>0.0.1</version>
-	<name>chatbot</name>
+	<name>chatBot</name>
 	<description>Technical Task for Jeff App</description>
 
 	<properties>
