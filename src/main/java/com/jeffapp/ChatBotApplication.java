@@ -6,6 +6,7 @@ import java.util.Scanner;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.w3c.dom.Document;
@@ -14,6 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 @SpringBootApplication
+@Slf4j
 public class ChatBotApplication {
 
   public static void main(String[] args) {
@@ -40,13 +42,13 @@ public class ChatBotApplication {
           if (type.equals("robot")) {
             String replace = textElement.getAttribute("replace");
             if (replace.equals("true")) {
-              output = checkOutputParams(output, user);
+              output = updateOutput(output, user);
             }
             System.out.println(output);
           } else {
             System.out.print(output);
             String inputFor = textElement.getAttribute("for");
-            user = updateUser(user, output, inputFor);
+            user = updateUser(user, inputFor);
           }
           Thread.sleep(1000);
         }
@@ -55,12 +57,12 @@ public class ChatBotApplication {
       }
       shutdownApp();
     } catch (Exception e) {
-      System.err.println(e);
+      log.error(e.getMessage());
     }
 
   }
 
-  private static User updateUser(User user, String output, String inputFor) {
+  private static User updateUser(User user, String inputFor) {
     Scanner scanner = new Scanner(System.in);
     String input = scanner.next();
     switch (inputFor) {
@@ -82,7 +84,7 @@ public class ChatBotApplication {
     return user;
   }
 
-  private static String checkOutputParams(String output, User user) {
+  private static String updateOutput(String output, User user) {
     if (output.contains("{firstName}") || output.contains("{lastName}")) {
       return output.replace("{firstName}", user.getFirstName()).replace("{lastName}", user.getLastName());
     }
